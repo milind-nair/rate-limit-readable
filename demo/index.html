@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rate Limit Header Explainer</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <div class="wrap">
+      <header class="hero">
+        <p class="eyebrow">Rate Limit Header Explainer</p>
+        <h1>Turn protocol headers into clear, UX-safe messages.</h1>
+        <p class="subhead">
+          Paste raw headers and get a deterministic explanation for users or developers.
+        </p>
+      </header>
+
+      <section class="grid">
+        <div class="panel" aria-label="Header input">
+          <div class="panel-head">
+            <h2>Paste Headers</h2>
+            <p>One header per line. Case-insensitive.</p>
+          </div>
+          <label class="field">
+            <span>Headers</span>
+            <textarea id="headersInput" rows="8"></textarea>
+          </label>
+          <div class="options">
+            <label class="field">
+              <span>Audience</span>
+              <select id="audienceSelect">
+                <option value="user" selected>User</option>
+                <option value="developer">Developer</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Style</span>
+              <select id="styleSelect">
+                <option value="short">Short</option>
+                <option value="verbose" selected>Verbose</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Now (epoch ms)</span>
+              <div class="inline">
+                <input id="nowInput" type="text" placeholder="Optional" />
+                <button id="nowButton" type="button">Use now</button>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="panel" aria-label="Explanation output">
+          <div class="panel-head">
+            <h2>Explanation</h2>
+            <p>Live output from <span class="mono">explainRateLimit</span>.</p>
+          </div>
+          <div class="output">
+            <div class="summary">
+              <span id="severityBadge" class="badge">info</span>
+              <p id="messageOutput" class="message"></p>
+            </div>
+            <div class="json-block">
+              <div class="json-head">
+                <span>Output JSON</span>
+                <button id="copyButton" type="button">Copy JSON</button>
+              </div>
+              <pre id="jsonOutput"></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <p>
+          Build the package first with <span class="mono">npm run build</span> so the demo can import the library.
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

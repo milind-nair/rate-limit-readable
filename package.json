@@ -1,0 +1,29 @@
+{
+  "name": "rate-limit-readable",
+  "version": "1.0.0",
+  "description": "Human-friendly explanations for API rate limit headers.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json",
+    "test": "npm run build && node --test test/explainRateLimit.test.cjs"
+  }
+}
